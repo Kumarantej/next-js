@@ -1,8 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getYouTubeVideoAction } from "src/redux/Actions/youTubeActions";
 import Image from "next/image";
+import { getYouTubeVideoAction } from "src/redux/Actions/youTubeActions";
+import Link from "next/link";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -19,22 +20,24 @@ export default function Home() {
       {items &&
         items.map((video, index) => {
           return (
-            <div
-              className="card flex flex-col gap-2 cursor-pointer"
+            <Link
+              href={`https://www.youtube.com/watch?v=${video.id}`}
               key={index}
             >
-              <Image
-                src={
-                  (video.snippet.thumbnails.standard &&
-                    video.snippet.thumbnails.standard.url) ||
-                  video.snippet.thumbnails.medium.url
-                }
-                alt="Picture of the author"
-                width={500}
-                height={500}
-                priority
-              />
-            </div>
+              <div className="card flex flex-col gap-2 cursor-pointer">
+                <Image
+                  src={
+                    (video.snippet.thumbnails.standard &&
+                      video.snippet.thumbnails.standard.url) ||
+                    video.snippet.thumbnails.medium.url
+                  }
+                  alt="Picture of the author"
+                  width={500}
+                  height={500}
+                  priority
+                />
+              </div>
+            </Link>
           );
         })}
     </div>
