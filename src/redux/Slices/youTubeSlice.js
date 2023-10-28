@@ -10,7 +10,7 @@ const YouTubeSlice = createSlice({
   initialState,
 
   reducers: {
-    getYouTubeVideos(state, actions) {
+    getYouTubeVideos(state, action) {
       return {
         ...state,
         loading: true,
@@ -37,9 +37,6 @@ export const {
   getYouTubeVideos,
   getYouTubeVideosSuccess,
   getYouTubeVideosFail,
-  getYouTubeChannelsSuccess,
 } = actions;
 
 export default reducer;
-// export const YouTubeAction = YouTubeSlice.actions;
-// export default YouTubeAction;

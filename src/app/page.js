@@ -20,10 +20,7 @@ export default function Home() {
       {items &&
         items.map((video, index) => {
           return (
-            <Link
-              href={`https://www.youtube.com/watch?v=${video.id}`}
-              key={index}
-            >
+            <Link href={`/channel/${video.snippet.channelId}`} key={index}>
               <div className="card flex flex-col gap-2 cursor-pointer">
                 <Image
                   src={

@@ -6,4 +6,7 @@ module.exports = {
   images: {
     domains: ["i.ytimg.com"],
   },
+  experimental: {
+    typedRoutes: true,
+  },
 };
